@@ -17,25 +17,8 @@ import java.time.LocalDateTime;
  * @author dmitry.mikhaylovich@bostongene.com
  */
 @SpringBootApplication
-@RestController
 public class AsciiDoctorApplication {
-
     public static void main(String[] args) {
         SpringApplication.run(AsciiDoctorApplication.class, args);
     }
-
-    @GetMapping("/get/{value}")
-    AsciiResponse getResponse(@PathVariable String value)
-    {
-        return new AsciiResponse(value, LocalDateTime.now().toString());
-    }
-
-    @SuppressWarnings("WeakerAccess")
-    @Value
-    static class AsciiResponse {
-        private String value;
-
-        private String time;
-    }
-
 }
